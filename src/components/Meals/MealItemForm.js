@@ -3,6 +3,7 @@ import Input from '../UI/Input'
 import {useRef, useState} from 'react'
 
 const MealItemForm = (props) => {
+
     const [amountIsValid, setAmountIsValid] = useState(true);
     const amountInputRef = useRef();
   
