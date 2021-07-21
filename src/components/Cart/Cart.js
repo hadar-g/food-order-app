@@ -2,6 +2,7 @@ import classes from './Cart.module.css'
 import Modal from '../UI/Modal'
 import {useContext} from 'react'
 import CartContext from '../../store/cart-context'
+import CartItem from '../CartItem/CartItem'
 
 const Cart = props => {
 
@@ -10,15 +11,27 @@ const Cart = props => {
     const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`
     const hasItems = cartCtx.items.length > 0
 
+    const cartItemRemoveHandler = id => {}
+
+    const cartItemAddHandler = item => {}
+
 
     const cartItems = <ul className = {classes['cart-tiems']}>
                         {cartCtx.items.map((item) => 
-                            <li>{item.name}</li>)}
+                            <CartItem 
+                                name = {item.name}
+                                key = {item.id} 
+                                amount = {item.amount} 
+                                price = {item.price}
+                                onRemove = {cartItemRemoveHandler.bind(null, item.id)}
+                                onAdd = {cartItemAddHandler.bind(null, item)}>
+                                    {item.name}
+                            </CartItem>)}
                       </ul>
 
     return(
         <Modal onClose = {props.onClose}>
-            {cartItems}
+                {cartItems }
             <div className = {classes.total}>
                 <span>Total Amount</span>
                 <span>{totalAmount}</span>
