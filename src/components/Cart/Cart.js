@@ -16,7 +16,7 @@ const Cart = props => {
     const cartItemAddHandler = item => {}
 
 
-    const cartItems = <ul className = {classes['cart-tiems']}>
+    const cartItems = <ul className = {classes['cart-items']}>
                         {cartCtx.items.map((item) => 
                             <CartItem 
                                 name = {item.name}
